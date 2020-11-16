@@ -2,27 +2,21 @@
 #define NODE_H
 
 #include <QGraphicsRectItem>
-
+#include "topologytypes.h"
 
 
 class Node : public QGraphicsRectItem
 {
 public:
 
-    struct nodeInfo_t
-    {
-        QString name;
-        uint32_t id;
-    };
+    struct board *nodeInfo;
 
-    Node(nodeInfo_t nodeInfo);
+    Node(struct board *nodeInfo);
     // QGraphicsItem interface
 public:
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
-    uint32_t getId();
 private:
-    nodeInfo_t info;
-
+    QString text;
     // QGraphicsItem interface
 public:
     enum { Type = UserType + 1 };

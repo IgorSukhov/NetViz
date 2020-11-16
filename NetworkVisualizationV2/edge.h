@@ -14,7 +14,7 @@ public:
 
     };
 
-    Edge(Node *n1, Node *n2);
+    Edge(Node *n1, size_t n1p, Node *n2, size_t n2p);
     void setText(QString text);
     // QGraphicsItem interface
 public:
@@ -22,7 +22,9 @@ public:
     void updateEdge();
 private:
     Node *node1;
+    size_t node1port;
     Node *node2;
+    size_t node2port;
     QRectF getRect();
     QString m_text;
     QGraphicsTextItem *textItem;

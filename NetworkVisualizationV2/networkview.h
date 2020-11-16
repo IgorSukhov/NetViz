@@ -3,6 +3,8 @@
 
 #include "node.h"
 #include "edge.h"
+#include "networktopology.h"
+
 #include <QGraphicsView>
 #include <QGraphicsRectItem>
 #include <QGraphicsLineItem>
@@ -15,7 +17,7 @@ class NetworkView : public QGraphicsView
 public:
     NetworkView(QWidget *parent = nullptr);
 
-    void addNode(qreal x, qreal y, QString nodeName, uint32_t id);
+//    Node *addNode(qreal x, qreal y);
     void addEdge(uint32_t id1, uint32_t id2);
 
     void allignToGrid();
@@ -30,6 +32,7 @@ private:
     qreal roundTo100(int n);
 
     // QWidget interface
+    void Test();
 protected:
     virtual void wheelEvent(QWheelEvent *event) override;
 
@@ -38,6 +41,11 @@ protected:
     // QWidget interface
 protected:
     virtual void contextMenuEvent(QContextMenuEvent *event) override;
+
+
+    // QWidget interface
+protected:
+    virtual void mouseMoveEvent(QMouseEvent *event) override;
 };
 
 
